@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8335765201447751961}
   - component: {fileID: 6073773703736059347}
   - component: {fileID: 4281728406849849194}
+  - component: {fileID: -7725156552394266344}
   m_Layer: 0
   m_Name: SpeedPowerUp
   m_TagString: Untagged
@@ -96,3 +97,19 @@ CapsuleCollider:
   m_Height: 0.45378348
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &-7725156552394266344
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713552185659507718}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ad590ff5960e3104cb8272faa604a5bf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ad590ff5960e3104cb8272faa604a5bf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
