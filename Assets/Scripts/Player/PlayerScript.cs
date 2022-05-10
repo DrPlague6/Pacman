@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public float PlayerSpeed;
     public float TurnSmoothingTime = 0.1f;
 
-    public Canvas HealthBar;
+    public GameObject HealthBar;
     public Sprite hpSprite;
     public int score;
     public float SpeedBoost = 1;
