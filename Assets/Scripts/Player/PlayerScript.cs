@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int Health;
+    public float PlayerSpeed;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+    public void SpeedPowerUP(){
+        PlayerSpeed *= 1.5f;
+    }
+    public void HealthPowerUP(){
+        Health += 1;
+    }
+    public void takeDamage(){
+        Health--;
+        if(Health ==0)
+            die();
+    }
+    private void die(){
+        //TODO:: ENDGAME SCREEN
     }
 }
