@@ -4,29 +4,33 @@ using UnityEngine;
 using UnityEngine.AI;
 public abstract class EnemyAbstract : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
     public float MovementSpeed;
     public float SearchRadius;
     public List<Transform> PatrolPoints;
-    private int targetPatrolPoint;
+    private int targetPatrolPoint = 0;
 
-    void Start(){
-        agent = GetComponent<NavMeshAgent>();
+    protected abstract void Start();
+    protected virtual void Update(){
+        if(IsInSight())
+            chase();
+        else
+            patrol();
     }
-    void Update(){
-        float distance = Vector3.Distance(transform.position,PatrolPoints[targetPatrolPoint].position);
-        if(distance > 20)
+    protected virtual void patrol(){
+        if(agent.pathPending || agent.remainingDistance > 0.1f)
             return;
         targetPatrolPoint++;
+        if(targetPatrolPoint >= PatrolPoints.Count)
+            targetPatrolPoint = 0;
+        Debug.Log(targetPatrolPoint);
         agent.destination = PatrolPoints[targetPatrolPoint].position;
     }
-    private void patrol(){
+    protected virtual void chase(){
+        return;
     }
-    private void chase(){
-
-    }
-    private void IsInSight(){
-
+    protected virtual bool IsInSight(){
+        return false;
     }
 
 }
