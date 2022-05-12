@@ -66,8 +66,12 @@ public class PlayerScript : MonoBehaviour
                     HealthPowerUP();
                     break;
                 case "SpeedBoost":
+<<<<<<< Updated upstream
                     SpeedPowerUP();
                     boosterTimeExp = Time.time + BoostersDuration;
+=======
+                    playerPowerUps.SpeedPowerUP(playerObject.BoostersDuration);
+>>>>>>> Stashed changes
                     break;
                 default:
                     score++;
