@@ -5,5 +5,4 @@ using UnityEngine;
 public class GhostObject : EntityObject
 {
     public float SearchRadius;
-    public LayerMask playerLayerMask;
 }

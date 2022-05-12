@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5092896694849423997}
   - component: {fileID: 5092896694849423984}
   - component: {fileID: 5092896694849423996}
+  - component: {fileID: 3393886507285218869}
   - component: {fileID: 5092896694849423985}
   - component: {fileID: 5092896694849423987}
   m_Layer: 6
@@ -66,12 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6f844fd094e174ca1b10e189ddc8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 0}
   TurnSmoothingTime: 0.1
-  hpSprite: {fileID: 21300000, guid: 193f5b4baa48ff94b81f374b01857089, type: 3}
   score: 0
-  SpeedBoost: 1
-  BoostersDuration: 100
   playerObject: {fileID: 0}
+  playerPowerUps: {fileID: 3393886507285218869}
 --- !u!114 &5092896694849423996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +86,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerControllerScript: {fileID: 5092896694849423984}
   CameraTransform: {fileID: 0}
+--- !u!114 &3393886507285218869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092896694849423999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e90d0798fa010448e7f05e962ac7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 5092896694849423984}
+  PostProcessor: {fileID: 0}
 --- !u!135 &5092896694849423985
 SphereCollider:
   m_ObjectHideFlags: 0

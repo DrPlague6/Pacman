@@ -9,11 +9,11 @@ public class EnemyScript : MonoBehaviour
     private int targetPatrolPoint = 0;
     public GhostObject entityObject;
     public GameObject chasedPlayer;
+    public LayerMask playerLayerMask;
     protected virtual void Start(){
         agent = GetComponent<NavMeshAgent>();
         agent.speed = entityObject.MovementSpeed;
-        entityObject.playerLayerMask = LayerMask.GetMask("Player");
-
+        playerLayerMask = LayerMask.GetMask("Player");
     }
     protected virtual void Update(){
         if(IsInSight(chasedPlayer))
@@ -30,8 +30,10 @@ public class EnemyScript : MonoBehaviour
         agent.destination = PatrolPoints[targetPatrolPoint].position;
     }
     public bool IsInSight(GameObject target){
-        if(Physics.CheckSphere(transform.position,entityObject.SearchRadius,entityObject.playerLayerMask)){
-            return true;
+        RaycastHit castHit;
+        if(Physics.CheckSphere(transform.position,entityObject.SearchRadius,playerLayerMask)){
+            if(Physics.SphereCast(transform.position,3f,target.transform.position,out castHit,Mathf.Infinity,playerLayerMask))
+                return true;
         }
         return false;
     }

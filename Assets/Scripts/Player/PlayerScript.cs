@@ -37,20 +37,25 @@ public class PlayerScript : MonoBehaviour
         //TODO:: ENDGAME SCREEN
     }
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.layer == LayerMask.NameToLayer("Collectables"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Interactable") || other.gameObject.layer == LayerMask.NameToLayer("Enemies"))
         {
             switch (other.gameObject.tag){
                 case "HealthBoost":
                     playerPowerUps.HealthPowerUP();
+                    other.gameObject.SetActive(false);
                     break;
                 case "SpeedBoost":
                     playerPowerUps.SpeedPowerUP();
+                    other.gameObject.SetActive(false);
                     break;
+                case "Enemy":
+                    Debug.Log("enemy");
+                    transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+                break;
                 default:
                     score++;
                     break;
             }
-            other.gameObject.SetActive(false);
         }
     }
 }
