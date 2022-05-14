@@ -25,6 +25,6 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f,smoothAngle,0f);
 
         movementDirection = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward;
-        playerController.Move(movementDirection.normalized * PlayerControllerScript.playerObject.MovementSpeed * PlayerControllerScript.playerObject.SpeedBoost * Time.deltaTime);
+        playerController.Move(movementDirection.normalized * PlayerControllerScript.PlayerSpeed * PlayerControllerScript.SpeedBoost * Time.deltaTime);
     }
 }

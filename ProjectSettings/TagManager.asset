@@ -6,7 +6,6 @@ TagManager:
   tags:
   - HealthBoost
   - SpeedBoost
-  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,7 @@ TagManager:
   - PostProcessing
   - Not in Reflection
   - Gates
-  - Interactable
+  - Collectables
   - 
   - 
   - 

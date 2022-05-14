@@ -2,60 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class PlayerScript : MonoBehaviour
 {
-    public GameObject HealthBar;
+    public int MaxHealth = 3;
+    private int health;
+    public float PlayerSpeed;
     public float TurnSmoothingTime = 0.1f;
+
+    public GameObject HealthBar;
+    public Sprite hpSprite;
     public int score;
-    public PlayerObject playerObject;
-    [SerializeField]
-    public PlayerPowerUps playerPowerUps;
+    public float SpeedBoost = 1;
+    public float BoostersDuration = 100;
+    private float boosterTimeExp = 0;
     void Start()
     {
         //add hp icons to bar
-        for(int i = 0; i<playerObject.MaxHealth;i++){
-           CreateNewHpIcon();
+        for(int i =0; i<MaxHealth;i++){
+           createNewHpIcon();
         }
-        playerObject.Health = playerObject.MaxHealth;
+        health = MaxHealth;
     }
+
     void Update()
     {
+        if(Time.time > boosterTimeExp){
+            SpeedBoost = 1;
+        }
     }
-    public void CreateNewHpIcon(){
+    public void SpeedPowerUP(){
+        SpeedBoost = 2;
+    }
+    public void HealthPowerUP(){
+        if(health++ >= MaxHealth){
+            score +=10;
+        }
+        else{
+            health++;
+            createNewHpIcon();
+        }
+        
+    }
+    private void createNewHpIcon(){
         GameObject hpIcon = new GameObject();
         Image newHpImage = hpIcon.AddComponent<Image>();
-        newHpImage.sprite = playerObject.hpSprite;
+        newHpImage.sprite = hpSprite;
         hpIcon.transform.SetParent(HealthBar.transform);
     }
     public void takeDamage(){
-        playerObject.Health--;
-        HealthBar.transform.GetChild(HealthBar.transform.childCount).gameObject.SetActive(false);
-        if(playerObject.Health == 0)
+        health--;
+        if(health == 0)
             die();
     }
     private void die(){
         //TODO:: ENDGAME SCREEN
     }
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.layer == LayerMask.NameToLayer("Interactable") || other.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Collectables"))
         {
             switch (other.gameObject.tag){
                 case "HealthBoost":
-                    playerPowerUps.HealthPowerUP();
-                    other.gameObject.SetActive(false);
+                    HealthPowerUP();
                     break;
                 case "SpeedBoost":
-                    playerPowerUps.SpeedPowerUP();
-                    other.gameObject.SetActive(false);
+                    SpeedPowerUP();
+                    boosterTimeExp = Time.time + BoostersDuration;
                     break;
-                case "Enemy":
-                    Debug.Log("enemy");
-                    transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
-                break;
                 default:
                     score++;
                     break;
             }
+            Destroy(other.gameObject);
+            Debug.Log("playerhit");
         }
     }
 }
