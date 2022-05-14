@@ -10,14 +10,16 @@ public class PlayerPowerUps : MonoBehaviour
     public PlayerScript playerScript;
     public Volume PostProcessor;
 
-     public async void SpeedPowerUP(){
+     public async void SpeedPowerUP(float durationTime){
         playerScript.playerObject.SpeedBoost = 2;
-        PostProcessor.weight = 1f;
-
-        float time = playerScript.playerObject.BoostersDuration;
-        
-        while(time > 0){
-            time -= Time.deltaTime;
+        PostProcessor.weight = 0f;
+        float remainingTime = durationTime;
+        while(remainingTime > 0){
+            if(remainingTime > durationTime * 0.6)
+                PostProcessor.weight += 0.005f;
+            else
+            PostProcessor.weight -= 0.001f;
+            remainingTime -=Time.deltaTime;
             await Task.Yield();
         }
         playerScript.playerObject.SpeedBoost = 1;
