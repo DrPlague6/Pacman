@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    public PlayerScript PlayerControllerScript;
+    [SerializeField] PlayerScript PlayerControllerScript;
     private float InputHorizontalAxis;
     private float InputVerticalAxis;
     private CharacterController playerController;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] public float TurnSmoothingTime = 0.1f;
+    public float TurnSmoothingTime = 0.1f;
     public int score;
     private int maxCoins;
     private int collectedCoins;

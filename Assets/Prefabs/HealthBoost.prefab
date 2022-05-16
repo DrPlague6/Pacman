@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3488177558026754093}
   - component: {fileID: 1696881019237199079}
   - component: {fileID: 1207746806352189034}
+  - component: {fileID: 700666868495831201}
   m_Layer: 11
   m_Name: HealthBoost
   m_TagString: HealthBoost
@@ -96,3 +97,18 @@ CapsuleCollider:
   m_Height: 0.45378348
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &700666868495831201
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904225425689136434}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

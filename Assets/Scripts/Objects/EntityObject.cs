@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class EntityObject : ScriptableObject
 {
-    [SerializeField] public float MovementSpeed;
+    public float MovementSpeed;
 }

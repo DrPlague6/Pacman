@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     protected NavMeshAgent agent;
-    public List<Transform> PatrolPoints;
+    [SerializeField] List<Transform> PatrolPoints;
     private int targetPatrolPoint = 0;
     public GhostObject entityObject;
     public GameObject chasedPlayer;
