@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33c18370d063ae34188b30b76bbc1172, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  MovementSpeed: 5
+  MaxHealth: 3
+  hpIcon: {fileID: 1083000859268569718, guid: 048be73e4cbdd6b468fc4daaef47301d, type: 3}
+  BoostersDuration: 6
+  SpeedBoost: 1
+  PlayerOverlay: {fileID: 784904550914362170, guid: 30a474fde25a3e04fadf67b055f2d78e, type: 3}
+  HealthBar: {fileID: 5345424334340770027, guid: 2417ed7e0db7a2f4e9ab90ea83e8674c, type: 3}
+  GameStateUI: {fileID: 8123148198357077209, guid: a2bd4a179e011b74ebdbeb34ba8705db, type: 3}

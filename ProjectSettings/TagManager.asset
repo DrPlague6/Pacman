@@ -6,6 +6,8 @@ TagManager:
   tags:
   - HealthBoost
   - SpeedBoost
+  - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - PostProcessing
   - Not in Reflection
   - Gates
-  - Collectables
+  - Interactable
   - 
   - 
   - 
