@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 public class PlayerPowerUps : MonoBehaviour
 {
-    [SerializeField]
-    public PlayerScript playerScript;
+    [SerializeField] PlayerScript playerScript;
     public Volume PostProcessor;
 
-     public async void SpeedPowerUP(float durationTime){
+     public async void SpeedPowerUP(){
         playerScript.playerObject.SpeedBoost = 2;
         PostProcessor.weight = 0f;
-        float remainingTime = durationTime;
+        float remainingTime = playerScript.playerObject.BoostersDuration;
         while(remainingTime > 0){
-            if(remainingTime > durationTime * 0.6)
+            if(remainingTime > playerScript.playerObject.BoostersDuration * 0.6)
                 PostProcessor.weight += 0.005f;
             else
             PostProcessor.weight -= 0.001f;
@@ -31,7 +30,7 @@ public class PlayerPowerUps : MonoBehaviour
         }
         else{
             playerScript.playerObject.Health++;
-            playerScript.CreateNewHpIcon();
+            playerScript.playerObject.HealthBar.transform.GetChild(playerScript.playerObject.HealthBar.transform.childCount - 1).gameObject.SetActive(true);
         }
         
     }
